@@ -1,0 +1,375 @@
+/* Page container */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* full viewport height */
+  background: linear-gradient(135deg, #f3f4f6, #dbeafe);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+/* Main content wrapper to push footer down */
+.main-content {
+  flex: 1;
+  /* takes available space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 20px;
+  /* ensures content does not touch footer */
+  box-sizing: border-box;
+}
+
+/* Header with blue background and logo */
+.page-title-container {
+  background: #1e3a8a;
+  color: white;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.charusat-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.page-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* Card styling */
+.approval-card {
+  width: 420px;
+  max-width: 90%;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease-in-out;
+  margin-top: 20px;
+}
+
+.approval-card:hover {
+  transform: scale(1.02);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #1e3a8a;
+}
+
+/* Form fields */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #1e3a8a;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Buttons */
+.button-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.approve-btn {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.approve-btn:hover {
+  background: #15803d;
+  transform: translateY(-2px);
+}
+
+/* Dialog overlay */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Dialog box */
+.dialog-box {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 380px;
+  max-width: 90%;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dialog-box h3 {
+  margin-bottom: 12px;
+  color: #16a34a;
+  font-size: 20px;
+}
+
+.dialog-box p {
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 20px;
+}
+
+.close-btn {
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.close-btn:hover {
+  background: #172554;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  background: rgba(243, 244, 246, 0.9);
+  text-align: center;
+  padding: 6px 5px;
+  font-size: 14px;
+  color: #111827;
+  border-top: 1px solid #d1d5db;
+}
+
+/* Footer links */
+.footer-link {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.footer-link.help {
+  color: #dc2626;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Notification Popup */
+.notification-popup {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #16a34a;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  animation: slideDown 0.4s ease-out;
+  min-width: 250px;
+  justify-content: center;
+}
+
+.tick-mark {
+  display: inline-block;
+  font-size: 18px;
+  margin-right: 12px;
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  animation: tickBounce 0.5s ease;
+}
+
+.tick-mark::after {
+  content: "✔";
+  font-size: 14px;
+}
+
+.notification-text {
+  font-size: 16px;
+}
+
+@keyframes tickBounce {
+  0% {
+    transform: scale(0);
+  }
+
+  60% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Welcome Box */
+.welcome-box {
+  margin: 20px auto;
+  padding: 15px 25px;
+  background: #fef2f2;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  width: 80%;
+  justify-content: space-between;
+}
+
+.welcome-box .welcome-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 10px;
+  flex: 1;
+}
+
+.welcome-box .logout-btn {
+  order: 1;
+  background: #ffcccc;
+  border: none;
+  color: #a80000;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.welcome-box .logout-btn:hover {
+  background: #ff9999;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .page-title-container {
+    flex-direction: column;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .page-title {
+    position: static;
+    transform: none;
+    margin-top: 10px;
+    font-size: 22px;
+  }
+
+  .charusat-logo {
+    height: 50px;
+  }
+
+  .approval-card {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .approval-card {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .form-group input {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .approve-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .dialog-box {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .footer {
+    font-size: 12px;
+    padding: 5px 2px;
+  }
+}

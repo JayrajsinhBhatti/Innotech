@@ -1,0 +1,120 @@
+/* Full background */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+
+  /* Correct background image syntax */
+  background: url("/public/hod-bkg-img.png") no-repeat center center;
+  background-size: cover; /* ensures full coverage */
+}
+
+/* Login card */
+.login-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  width: 380px;
+  max-width: 95%;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #1e3a8a;
+}
+
+/* Input fields */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: #2563eb;
+}
+
+/* Error */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Login button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #1e40af;
+}
+
+/* Forgot password */
+.forgot {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #374151;
+  text-decoration: none;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  margin-top: 15px;
+  background: rgba(243, 244, 246, 0.9);
+  text-align: center;
+  padding: 6px;
+  font-size: 14px;
+  color: #111827;
+  border-top: 1px solid #d1d5db;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.footer-link {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.footer-link.help {
+  color: #dc2626;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}

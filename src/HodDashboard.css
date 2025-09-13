@@ -1,0 +1,136 @@
+/* Page background */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f3f4f6, #dbeafe);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 20px;
+}
+
+/* Header with blue background and logo */
+.page-title-container {
+  background: #1e3a8a;
+  color: white;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Spread items to left and right */
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Make the logo bigger */
+.charusat-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Center the title absolutely */
+.page-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+/* Card styling */
+.approval-card {
+  width: 420px;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease-in-out;
+  margin-top: 20px;
+}
+
+.approval-card:hover {
+  transform: scale(1.02);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #1e3a8a;
+}
+
+.info p {
+  font-size: 16px;
+  margin: 12px 0;
+  color: #374151;
+}
+
+.info span {
+  font-weight: 600;
+  color: #111827;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.approve-btn {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.approve-btn:hover {
+  background: #15803d;
+  transform: translateY(-2px);
+}
+
+/* Welcome Box */
+.welcome-box {
+  margin: 20px auto;
+  padding: 15px 25px;
+  background: #fef2f2; /* light red */
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between; /* space between HOD name and logout button */
+  align-items: center;
+  width: 80%;
+}
+
+/* HOD name text */
+.welcome-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin: 0; /* remove extra margin */
+  padding-left: 10px; /* small space from left edge */
+}
+
+/* Logout button on right */
+.logout-btn {
+  background: #ffcccc;
+  border: none;
+  color: #a80000;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #ff9999;
+}
