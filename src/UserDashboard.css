@@ -1,70 +1,132 @@
+/* General Reset Fix */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* Prevents unwanted horizontal scroll */
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
 /* Page container */
 .page-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* full viewport height */
   background: linear-gradient(135deg, #f3f4f6, #dbeafe);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  padding-top: 20px;
   box-sizing: border-box;
 }
 
-/* Main content wrapper to push footer down */
+/* Main content wrapper */
 .main-content {
-  flex: 1;
-  /* takes available space */
+  flex: 1; /* ensures footer stays at bottom */
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding-bottom: 20px;
-  /* ensures content does not touch footer */
+  padding: clamp(15px, 4vw, 20px);
   box-sizing: border-box;
 }
 
-/* Header with blue background and logo */
+/* Header */
 .page-title-container {
   background: #1e3a8a;
   color: white;
   width: 100%;
-  padding: 20px 40px;
+  padding: clamp(15px, 4vw, 40px) clamp(20px, 5vw, 40px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: clamp(20px, 5vw, 30px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  position: relative;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .charusat-logo {
-  height: 60px;
+  height: clamp(40px, 8vw, 60px);
   width: auto;
   object-fit: contain;
+  max-width: 25%;
 }
 
 .page-title {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 28px;
+  font-size: clamp(18px, 5vw, 28px);
   font-weight: bold;
   margin: 0;
   letter-spacing: 0.5px;
   white-space: nowrap;
+  text-align: center;
+  max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Card styling */
+/* Welcome Box */
+.welcome-box {
+  margin: clamp(15px, 4vw, 20px) auto;
+  padding: clamp(12px, 3vw, 20px) clamp(15px, 4vw, 20px);
+  background: #fef2f2;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: min(900px, 95vw);
+  box-sizing: border-box;
+  gap: clamp(8px, 2vw, 15px);
+  flex-wrap: wrap;
+}
+
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.logout-btn {
+  background: #ffcccc;
+  border: none;
+  color: #a80000;
+  padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 15px);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: clamp(12px, 2.5vw, 14px);
+  min-width: fit-content;
+}
+
+.logout-btn:hover {
+  background: #ff9999;
+}
+
+/* Card */
 .approval-card {
-  width: 420px;
-  max-width: 90%;
-  padding: 25px;
+  width: min(420px, 95vw);
+  max-width: 100%;
+  padding: clamp(15px, 5vw, 25px);
   background: #ffffff;
   border-radius: 15px;
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.12);
   transition: transform 0.2s ease-in-out;
-  margin-top: 20px;
+  margin-top: clamp(15px, 4vw, 20px);
+  box-sizing: border-box;
 }
 
 .approval-card:hover {
@@ -73,50 +135,60 @@
 
 .title {
   text-align: center;
-  margin-bottom: 25px;
-  font-size: 22px;
+  margin-bottom: clamp(20px, 5vw, 25px);
+  font-size: clamp(18px, 4.5vw, 22px);
   font-weight: bold;
   color: #1e3a8a;
+  line-height: 1.3;
 }
 
-/* Form fields */
+/* Form */
 .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: clamp(15px, 4vw, 20px);
 }
 
 .form-group label {
   margin-bottom: 6px;
   font-weight: 500;
   color: #1e3a8a;
+  font-size: clamp(14px, 3.5vw, 16px);
 }
 
 .form-group input {
-  padding: 10px;
+  padding: clamp(8px, 2.5vw, 10px);
   border: 1px solid #d1d5db;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: clamp(13px, 3.5vw, 14px);
   width: 100%;
   box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
 }
 
 /* Buttons */
 .button-container {
   text-align: center;
-  margin-top: 30px;
+  margin-top: clamp(25px, 6vw, 30px);
 }
 
 .approve-btn {
   background: #16a34a;
   color: white;
   border: none;
-  padding: 12px 30px;
-  font-size: 16px;
+  padding: clamp(10px, 3vw, 12px) clamp(20px, 6vw, 30px);
+  font-size: clamp(14px, 3.5vw, 16px);
   font-weight: 600;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
+  min-height: 44px; /* Minimum touch target */
 }
 
 .approve-btn:hover {
@@ -136,41 +208,48 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 /* Dialog box */
 .dialog-box {
   background: #fff;
-  padding: 25px 30px;
+  padding: clamp(20px, 5vw, 30px);
   border-radius: 12px;
   text-align: center;
-  width: 380px;
-  max-width: 90%;
+  width: min(380px, 95vw);
+  max-width: 100%;
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .dialog-box h3 {
   margin-bottom: 12px;
   color: #16a34a;
-  font-size: 20px;
+  font-size: clamp(18px, 4vw, 20px);
+  line-height: 1.3;
 }
 
 .dialog-box p {
-  font-size: 14px;
+  font-size: clamp(13px, 3vw, 14px);
   color: #374151;
   margin-bottom: 20px;
+  line-height: 1.5;
 }
 
 .close-btn {
   background: #1e3a8a;
   color: white;
   border: none;
-  padding: 10px 20px;
-  font-size: 14px;
+  padding: clamp(8px, 2.5vw, 10px) clamp(16px, 4vw, 20px);
+  font-size: clamp(12px, 3vw, 14px);
   font-weight: 600;
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s ease;
+  min-height: 40px;
 }
 
 .close-btn:hover {
@@ -182,18 +261,20 @@
   width: 100%;
   background: rgba(243, 244, 246, 0.9);
   text-align: center;
-  padding: 6px 5px;
-  font-size: 14px;
+  padding: clamp(5px, 1.5vw, 6px) clamp(5px, 2vw, 5px);
+  font-size: clamp(12px, 2.5vw, 14px);
   color: #111827;
   border-top: 1px solid #d1d5db;
+  margin-top: auto;
+  line-height: 1.5;
 }
 
-/* Footer links */
 .footer-link {
-  margin: 0 5px;
+  margin: 0 clamp(3px, 1vw, 5px);
   text-decoration: none;
   color: #2563eb;
   font-weight: 500;
+  display: inline-block;
 }
 
 .footer-link.help {
@@ -212,7 +293,7 @@
   transform: translateX(-50%);
   background: #16a34a;
   color: white;
-  padding: 12px 25px;
+  padding: clamp(10px, 3vw, 12px) clamp(20px, 5vw, 25px);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -220,17 +301,18 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 9999;
   animation: slideDown 0.4s ease-out;
-  min-width: 250px;
+  min-width: min(250px, 80vw);
+  max-width: 95vw;
   justify-content: center;
 }
 
 .tick-mark {
   display: inline-block;
-  font-size: 18px;
-  margin-right: 12px;
+  font-size: clamp(16px, 4vw, 18px);
+  margin-right: clamp(8px, 2.5vw, 12px);
   position: relative;
-  width: 22px;
-  height: 22px;
+  width: clamp(18px, 5vw, 22px);
+  height: clamp(18px, 5vw, 22px);
   border-radius: 50%;
   background: white;
   color: #16a34a;
@@ -243,22 +325,22 @@
 
 .tick-mark::after {
   content: "✔";
-  font-size: 14px;
+  font-size: clamp(12px, 3vw, 14px);
 }
 
 .notification-text {
-  font-size: 16px;
+  font-size: clamp(14px, 3.5vw, 16px);
+  text-align: center;
 }
 
+/* Animations */
 @keyframes tickBounce {
   0% {
     transform: scale(0);
   }
-
   60% {
     transform: scale(1.3);
   }
-
   100% {
     transform: scale(1);
   }
@@ -267,109 +349,213 @@
 @keyframes slideDown {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateX(-50%) translateY(-20px);
   }
-
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
 }
 
-/* Welcome Box */
-.welcome-box {
-  margin: 20px auto;
-  padding: 15px 25px;
-  background: #fef2f2;
-  border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  width: 80%;
-  justify-content: space-between;
-}
+/* Media Queries for specific breakpoints */
 
-.welcome-box .welcome-content {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding-left: 10px;
-  flex: 1;
-}
-
-.welcome-box .logout-btn {
-  order: 1;
-  background: #ffcccc;
-  border: none;
-  color: #a80000;
-  padding: 8px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.welcome-box .logout-btn:hover {
-  background: #ff9999;
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
+/* Extra Small Devices (Portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
   .page-title-container {
     flex-direction: column;
     padding: 15px;
     text-align: center;
+    gap: 10px;
   }
 
   .page-title {
     position: static;
     transform: none;
     margin-top: 10px;
-    font-size: 22px;
+    max-width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
   }
 
   .charusat-logo {
-    height: 50px;
+    margin-bottom: 5px;
   }
 
-  .approval-card {
-    width: 95%;
-    padding: 20px;
+  .welcome-box {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .logout-btn {
+    align-self: center;
+    width: fit-content;
+  }
+
+  .notification-popup {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .tick-mark {
+    margin-right: 0;
+    margin-bottom: 5px;
   }
 }
 
-@media (max-width: 480px) {
-  .page-title {
-    font-size: 18px;
-    line-height: 1.2;
+/* Small Devices (Landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .page-title-container {
+    padding: 18px 25px;
   }
-
-  .approval-card {
-    width: 100%;
-    padding: 15px;
+  
+  .welcome-box {
+    max-width: 95%;
+    padding: 16px 18px;
+    gap: 15px;
   }
-
-  .title {
-    font-size: 18px;
+  
+  .welcome-content {
+    max-width: calc(100% - 85px);
   }
-
-  .form-group input {
-    font-size: 13px;
-    padding: 8px;
+  
+  .welcome-content h2 {
+    font-size: 17px;
   }
-
-  .approve-btn {
-    padding: 10px 20px;
+  
+  .welcome-content p {
     font-size: 14px;
   }
+}
 
-  .dialog-box {
-    width: 95%;
+/* Medium Devices (Tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .page-title-container {
+    padding: 25px 30px;
+  }
+  
+  .page-title {
+    max-width: calc(100% - 160px);
+  }
+  
+  .approval-card {
+    width: min(500px, 90vw);
+  }
+  
+  .welcome-box {
+    max-width: 90%;
+    gap: 20px;
+  }
+  
+  .welcome-content {
+    max-width: calc(100% - 120px);
+  }
+}
+
+/* Large Devices (Desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .approval-card {
+    width: 420px;
+  }
+  
+  .welcome-box {
+    max-width: 85%;
+  }
+}
+
+/* Extra Large Devices (Large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .welcome-box {
+    max-width: 900px;
+  }
+  
+  .main-content {
+    padding: 20px 40px;
+  }
+}
+
+/* High DPI / Retina Display Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .charusat-logo {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 600px) {
+  .page-title-container {
+    padding: 10px 20px;
+    margin-bottom: 15px;
+  }
+  
+  .main-content {
+    padding: 10px 20px;
+  }
+  
+  .approval-card {
+    margin-top: 10px;
     padding: 20px;
   }
+  
+  .dialog-box {
+    max-height: 85vh;
+  }
+}
 
-  .footer {
-    font-size: 12px;
-    padding: 5px 2px;
+/* Print styles */
+@media print {
+  .page-container {
+    background: white;
+  }
+  
+  .logout-btn,
+  .notification-popup,
+  .dialog-overlay {
+    display: none;
+  }
+  
+  .page-title-container {
+    background: white;
+    color: black;
+    box-shadow: none;
+    border-bottom: 2px solid #000;
+  }
+  
+  .approval-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* Focus styles for accessibility */
+@media (prefers-reduced-motion: no-preference) {
+  .approve-btn:focus,
+  .close-btn:focus,
+  .logout-btn:focus {
+    outline: 3px solid #fbbf24;
+    outline-offset: 2px;
+  }
+}
+
+/* Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .approval-card:hover {
+    transform: none;
+  }
+  
+  .approve-btn:hover {
+    transform: none;
   }
 }

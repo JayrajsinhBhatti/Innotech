@@ -1,40 +1,41 @@
-/* Full background */
+/* === GLOBAL CONTAINER === */
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh; 
   flex-direction: column;
 
-  /* Correct background image syntax */
   background: url("/public/hod-bkg-img.png") no-repeat center center;
-  background-size: cover; /* ensures full coverage */
+  background-size: cover;
+  padding: 20px; 
 }
 
-/* Login card */
+/* === LOGIN CARD === */
 .login-card {
   background: #fff;
-  padding: 30px;
+  padding: 25px;
   border-radius: 15px;
-  width: 380px;
-  max-width: 95%;
+  width: 100%;
+  max-width: 380px;
   text-align: center;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
-  height: 60px;
+  height: 50px;
   margin-bottom: 15px;
+  max-width: 100%;
 }
 
 .title {
   margin-bottom: 20px;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
   color: #1e3a8a;
 }
 
-/* Input fields */
+/* ================= INPUT FIELDS ================= */
 .input-group {
   margin-bottom: 15px;
 }
@@ -52,14 +53,14 @@
   border-color: #2563eb;
 }
 
-/* Error */
+/* ================= ERROR ================= */
 .error {
   color: red;
   font-size: 14px;
   margin-bottom: 10px;
 }
 
-/* Login button */
+/* ================= LOGIN BUTTON ================= */
 .login-btn {
   width: 100%;
   padding: 12px;
@@ -77,7 +78,7 @@
   background: #1e40af;
 }
 
-/* Forgot password */
+/* ================= FORGOT PASSWORD ================= */
 .forgot {
   display: block;
   margin-top: 10px;
@@ -90,12 +91,12 @@
   text-decoration: underline;
 }
 
-/* Footer */
+/* ================= FOOTER ================= */
 .footer {
   margin-top: 15px;
   background: rgba(243, 244, 246, 0.9);
   text-align: center;
-  padding: 6px;
+  padding: 6px 10px;
   font-size: 14px;
   color: #111827;
   border-top: 1px solid #d1d5db;
@@ -117,4 +118,59 @@
 
 .footer-link:hover {
   text-decoration: underline;
+}
+
+/* ================= RESPONSIVE BREAKPOINTS ================= */
+
+/* Small devices (phones < 480px) */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .login-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .footer {
+    font-size: 12px;
+    padding: 5px;
+  }
+}
+
+/* Tablets (481px - 768px) */
+@media (max-width: 768px) {
+  .login-card {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .footer {
+    font-size: 13px;
+  }
+}
+
+/* Larger screens (> 1024px) */
+@media (min-width: 1024px) {
+  .login-card {
+    padding: 40px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .login-btn {
+    font-size: 18px;
+  }
 }

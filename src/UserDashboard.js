@@ -83,7 +83,7 @@ export default function UserDashboard() {
 
         <div className="welcome-box">
           <div className="welcome-content">
-            <h2>Welcome, {username || "Student"} 👋</h2>
+            <h2>Welcome, {username || "Student"} </h2>
             <p>Fill out the form below to submit your medical application.</p>
           </div>
           <button className="logout-btn" onClick={handleLogout}>Logout</button>

@@ -1,4 +1,4 @@
-/* Page background */
+/* ================= PAGE BACKGROUND ================= */
 .page-container {
   display: flex;
   flex-direction: column;
@@ -10,41 +10,86 @@
   padding-top: 20px;
 }
 
-/* Header with blue background and logo */
+/* ================= HEADER ================= */
 .page-title-container {
   background: #1e3a8a;
   color: white;
   width: 100%;
-  padding: 20px 40px;
+  padding: 15px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Spread items to left and right */
+  justify-content: space-between;
   margin-bottom: 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
-/* Make the logo bigger */
 .charusat-logo {
-  height: 60px;
+  height: 50px;
   width: auto;
   object-fit: contain;
 }
 
-/* Center the title absolutely */
 .page-title {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 28px;
+  font-size: 1.6rem;
   font-weight: bold;
   margin: 0;
   letter-spacing: 0.5px;
+  text-align: center;
 }
-/* Card styling */
+
+/* ================= WELCOME BOX ================= */
+.welcome-box {
+  margin: 20px auto;
+  padding: 15px 20px;
+  background: #fef2f2;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 900px;
+  gap: 12px;
+  white-space: nowrap; /* keep in one line */
+}
+
+.welcome-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0; /* important for ellipsis */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.logout-btn {
+  flex: 0 0 auto;
+  background: #ffcccc;
+  border: none;
+  color: #a80000;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.logout-btn:hover {
+  background: #ff9999;
+}
+
+/* ================= APPROVAL CARD ================= */
 .approval-card {
-  width: 420px;
-  padding: 25px;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
   background: #ffffff;
   border-radius: 15px;
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.12);
@@ -58,15 +103,15 @@
 
 .title {
   text-align: center;
-  margin-bottom: 25px;
-  font-size: 22px;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
   font-weight: bold;
   color: #1e3a8a;
 }
 
 .info p {
-  font-size: 16px;
-  margin: 12px 0;
+  font-size: 0.95rem;
+  margin: 10px 0;
   color: #374151;
 }
 
@@ -77,7 +122,7 @@
 
 .button-container {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .approve-btn {
@@ -85,7 +130,7 @@
   color: white;
   border: none;
   padding: 12px 30px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   border-radius: 8px;
   cursor: pointer;
@@ -97,40 +142,100 @@
   transform: translateY(-2px);
 }
 
-/* Welcome Box */
-.welcome-box {
-  margin: 20px auto;
-  padding: 15px 25px;
-  background: #fef2f2; /* light red */
-  border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-  display: flex;
-  justify-content: space-between; /* space between HOD name and logout button */
-  align-items: center;
-  width: 80%;
+/* ================= FOOTER ================= */
+.footer {
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  color: #111827;
+  border-top: 1px solid #d1d5db;
+  width: 100%;
+  background: rgba(243, 244, 246, 0.9);
 }
 
-/* HOD name text */
-.welcome-text {
-  font-size: 18px;
-  font-weight: 600;
-  color: #1e3a8a;
-  margin: 0; /* remove extra margin */
-  padding-left: 10px; /* small space from left edge */
+.footer-link {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #2563eb;
+  font-weight: 500;
 }
 
-/* Logout button on right */
-.logout-btn {
-  background: #ffcccc;
-  border: none;
-  color: #a80000;
-  padding: 8px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
+.footer-link.help {
+  color: #dc2626;
 }
 
-.logout-btn:hover {
-  background: #ff9999;
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* ================= RESPONSIVE BREAKPOINTS ================= */
+
+/* Phones (max 480px) */
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.2rem;
+  }
+
+  .charusat-logo {
+    height: 40px;
+  }
+
+  .welcome-box {
+    width: 95%;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .welcome-text {
+    font-size: 0.9rem;
+  }
+
+  .logout-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .approval-card {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .info p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablets (481px - 768px) */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.4rem;
+  }
+
+  .approval-card {
+    max-width: 90%;
+  }
+
+  .welcome-box {
+    width: 90%;
+  }
+}
+
+/* Large screens (>1024px) */
+@media (min-width: 1024px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .approval-card {
+    max-width: 500px;
+  }
+
+  .welcome-text {
+    font-size: 1.1rem;
+  }
 }

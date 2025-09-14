@@ -6,9 +6,9 @@ export default function UserLogin() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const navigate = useNavigate();  // Initialize navigation
+    const navigate = useNavigate();  
 
-    // Demo credentials (replace with backend API later)
+    // Demo credentials
     const validUsername = "24CE014";
     const validPassword = "123";
 
