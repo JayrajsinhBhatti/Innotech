@@ -1,6 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import emailjs from "@emailjs/browser"; // ✅ Import EmailJS
 import "./UserDashboard.css";
+
+console.log("Service ID:", process.env.REACT_APP_EMAILJS_SERVICE_ID);
+console.log("Template ID:", process.env.REACT_APP_EMAILJS_TEMPLATE_ID);
+console.log("Public Key:", process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
 
 export default function UserDashboard() {
   const [formData, setFormData] = useState({
@@ -9,20 +14,22 @@ export default function UserDashboard() {
     date: "",
   });
   const [showDialog, setShowDialog] = useState(false);
-  const [notification, setNotification] = useState(""); 
+  const [notification, setNotification] = useState("");
   const [username, setUsername] = useState("");
   const [studentId, setStudentId] = useState("");
 
   const navigate = useNavigate();
+  const formRef = useRef(); // Ref for the form to use with EmailJS
 
   useEffect(() => {
     const savedUser = localStorage.getItem("username");
-    const savedStudentId = localStorage.getItem("studentId"); // get studentId
+    const savedStudentId = localStorage.getItem("studentId");
+
     if (!savedUser || !savedStudentId) {
       navigate("/", { replace: true });
     } else {
       setUsername(savedUser);
-      setStudentId(savedStudentId); // store studentId
+      setStudentId(savedStudentId);
       showNotification("Logged in successfully!");
     }
 
@@ -37,15 +44,35 @@ export default function UserDashboard() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Combine form data with studentId
-    const dataToSend = { studentId, ...formData };
 
-    // Save data to localStorage temporarily for HOD dashboard
-    localStorage.setItem("medicalApplication", JSON.stringify(dataToSend));
+    const templateParams = {
+      student_id: studentId,
+      student_name: username,
+      health_issue: formData.healthProblem,
+      counsellor_name: formData.counsellorName,
+      date_of_application: formData.date,
+    };
 
-    setShowDialog(true);
+    try {
+      const response = await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      );
+
+      console.log("✅ Email sent:", response.status, response.text);
+      showNotification("Application submitted — email sent to HOD.");
+      setShowDialog(true);
+    } catch (error) {
+      console.error("❌ Failed to send email:", error);
+      showNotification("Application submitted but email not sent.");
+      setShowDialog(true);
+    }
+
+    // Reset form
     setFormData({
       healthProblem: "",
       counsellorName: "",
@@ -55,7 +82,7 @@ export default function UserDashboard() {
 
   const handleLogout = () => {
     localStorage.removeItem("username");
-    localStorage.removeItem("studentId"); // also remove studentId
+    localStorage.removeItem("studentId");
     setUsername("");
     showNotification("Logged out successfully!");
     setTimeout(() => navigate("/", { replace: true }), 2000);
@@ -63,7 +90,7 @@ export default function UserDashboard() {
 
   const showNotification = (message) => {
     setNotification(message);
-    setTimeout(() => setNotification(""), 2000);
+    setTimeout(() => setNotification(""), 3000);
   };
 
   return (
@@ -77,7 +104,11 @@ export default function UserDashboard() {
 
       <div className="main-content">
         <div className="page-title-container">
-          <img src="./charusat-logo.png" alt="Charusat Logo" className="charusat-logo" />
+          <img
+            src="./charusat-logo.png"
+            alt="Charusat Logo"
+            className="charusat-logo"
+          />
           <h1 className="page-title">CHARUSAT Medical Approval</h1>
         </div>
 
@@ -86,12 +117,14 @@ export default function UserDashboard() {
             <h2>Welcome, {username || "Student"} </h2>
             <p>Fill out the form below to submit your medical application.</p>
           </div>
-          <button className="logout-btn" onClick={handleLogout}>Logout</button>
+          <button className="logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
 
         <div className="approval-card">
           <h2 className="title">Medical Application</h2>
-          <form onSubmit={handleSubmit}>
+          <form ref={formRef} onSubmit={handleSubmit}>
             <div className="form-group">
               <label>Health Problem</label>
               <input
@@ -126,7 +159,9 @@ export default function UserDashboard() {
             </div>
 
             <div className="button-container">
-              <button type="submit" className="approve-btn">Submit</button>
+              <button type="submit" className="approve-btn">
+                Submit
+              </button>
             </div>
           </form>
         </div>
@@ -138,16 +173,26 @@ export default function UserDashboard() {
             <h3>✅ Application Submitted</h3>
             <p>Your request has been sent for HOD approval.</p>
             <p>You will receive an e-mail once approved.</p>
-            <button onClick={() => setShowDialog(false)} className="approve-btn">Close</button>
+            <button
+              onClick={() => setShowDialog(false)}
+              className="approve-btn"
+            >
+              Close
+            </button>
           </div>
         </div>
       )}
 
       <footer className="footer">
         <p>
-          © Copyright CSPIT – CHARUSAT | All rights reserved |
-          <a href="/about" className="footer-link">About</a> |{" "}
-          <a href="/help" className="footer-link help">Help</a>
+          © Copyright CSPIT – CHARUSAT | All rights reserved |{" "}
+          <a href="/about" className="footer-link">
+            About
+          </a>{" "}
+          |{" "}
+          <a href="/help" className="footer-link help">
+            Help
+          </a>
         </p>
       </footer>
     </div>
