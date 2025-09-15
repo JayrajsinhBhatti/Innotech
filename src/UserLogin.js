@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";  // Import navigation
+import { useNavigate } from "react-router-dom";
 import "./UserLogin.css";
 
 export default function UserLogin() {
@@ -12,7 +12,6 @@ export default function UserLogin() {
   const validUsername = "24CE014";
   const validPassword = "123";
 
-  // ✅ Set page/tab title when component loads
   useEffect(() => {
     document.title = "User Login";
   }, []);
@@ -24,7 +23,7 @@ export default function UserLogin() {
 
       // Save both username and studentId
       localStorage.setItem("username", username);
-      localStorage.setItem("studentId", username); // assuming username is studentId
+      localStorage.setItem("studentId", username); 
 
       // Redirect after saving
       navigate("/user-dashboard", { replace: true });
@@ -45,7 +44,7 @@ export default function UserLogin() {
           alt="CHARUSAT Logo"
           className="logo"
         />
-        <h2 className="title">User Login</h2> {/* ✅ updated heading */}
+        <h2 className="title">User Login</h2> {}
         <form onSubmit={handleLogin}>
           <div className="input-group">
             <input

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ for navigation
+import { useNavigate } from "react-router-dom"; 
 import "./App.css";
 
 export default function HODLogin() {
@@ -7,14 +7,14 @@ export default function HODLogin() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const navigate = useNavigate(); // ✅ hook for redirect
+  const navigate = useNavigate(); 
 
-  // Demo credentials (replace with backend API later)
+  // Demo credentials
   const validUsername = "NikitaBhatt";
   const validPassword = "123";
 
   useEffect(() => {
-    document.title = "HOD Login"; // ✅ set page/tab name
+    document.title = "HOD Login"; 
   }, []);
 
   const handleLogin = (e) => {
@@ -22,7 +22,6 @@ export default function HODLogin() {
     if (username === validUsername && password === validPassword) {
       setError("");
 
-      // Save login info for protected dashboard
       localStorage.setItem("hodUsername", username);
 
       // Redirect to HOD Dashboard
@@ -36,7 +35,7 @@ export default function HODLogin() {
     <div className="login-container">
       <div className="login-card">
         <img
-          src="/charusat-logo.png" // ✅ use / if image is in public folder
+          src="/charusat-logo.png"
           alt="CHARUSAT Logo"
           className="logo"
         />

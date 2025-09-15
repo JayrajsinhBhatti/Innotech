@@ -1,3 +1,4 @@
+// HodDashboard.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
@@ -6,19 +7,18 @@ import charusatLogo from "./charusat-logo.png";
 import pagelogo from "./charusat-page-logo.png";
 
 export default function HodDashboard() {
-
   const [student, setStudent] = useState(null);
   const [username, setUsername] = useState("");
   const [notification, setNotification] = useState("");
-  const [notificationType, setNotificationType] = useState("success"); // success | error
+  const [notificationType, setNotificationType] = useState("success"); 
   const navigate = useNavigate();
 
-  const SESSION_DURATION = 0.15 * 60 * 1000; // 15 minutes
+  const SESSION_DURATION = 0.15 * 60 * 1000; 
 
   // Load HOD username & student data
   useEffect(() => {
     document.title = "HOD Dashboard";
-    
+
     const savedUser = localStorage.getItem("hodUsername");
     if (!savedUser) {
       navigate("/hod-login", { replace: true });
@@ -43,29 +43,19 @@ export default function HodDashboard() {
     const handlePopState = () => window.history.pushState(null, "", window.location.href);
     window.addEventListener("popstate", handlePopState);
 
-  // Auto session expiration
-const sessionTimer = setTimeout(() => {
-  // Step 1: Show session expired
-  showNotification("Session expired ❌", "error");
+    // Auto session expiration
+    const sessionTimer = setTimeout(() => {
+      // Step 1: Show session expired
+      showNotification("Session expired ❌", "error");
 
-  // Step 2: After 3 seconds (when it disappears), logout + show success
-  setTimeout(() => {
-    localStorage.removeItem("hodUsername");
-    sessionStorage.removeItem("hodLoggedInFlag");
-    setUsername("");
-
-    // Show "Logged out successfully" now
-    showNotification("Logged out successfully!", "success");
-
-    // Step 3: After another 2s, redirect to login
-    setTimeout(() => {
-      navigate("/hod-login", { replace: true });
-    }, 2000);
-
-  }, 3000); // matches your showNotification auto-clear timing
-}, SESSION_DURATION);
-
-
+      // Step 2: After 3 seconds redirect to login (NO logged out popup)
+      setTimeout(() => {
+        localStorage.removeItem("hodUsername");
+        sessionStorage.removeItem("hodLoggedInFlag");
+        setUsername("");
+        navigate("/hod-login", { replace: true });
+      }, 3000);
+    }, SESSION_DURATION);
 
     return () => {
       window.removeEventListener("popstate", handlePopState);

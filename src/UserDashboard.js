@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import emailjs from "@emailjs/browser"; // ✅ Import EmailJS
+import emailjs from "@emailjs/browser"; //Import EmailJS
 import "./UserDashboard.css";
 
 console.log("Service ID:", process.env.REACT_APP_EMAILJS_SERVICE_ID);
@@ -19,7 +19,7 @@ export default function UserDashboard() {
   const [studentId, setStudentId] = useState("");
 
   const navigate = useNavigate();
-  const formRef = useRef(); // Ref for the form to use with EmailJS
+  const formRef = useRef(); 
 
   useEffect(() => {
     document.title = "User Dashboard";
