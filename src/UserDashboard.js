@@ -22,6 +22,7 @@ export default function UserDashboard() {
   const formRef = useRef(); // Ref for the form to use with EmailJS
 
   useEffect(() => {
+    document.title = "User Dashboard";
     const savedUser = localStorage.getItem("username");
     const savedStudentId = localStorage.getItem("studentId");
 

@@ -1,0 +1,152 @@
+/* Container */
+.help-container {
+  background: #f9fbfd;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* Header with gradient */
+.help-header {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+  border-radius: 0 0 40px 40px;
+  margin-bottom: 50px;
+}
+
+.help-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.help-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Grid Layout */
+.help-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Card */
+.help-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: left;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.help-card:hover {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.help-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #0a2540;
+  border-left: 5px solid #00c6ff;
+  padding-left: 12px;
+  transition: color 0.3s ease;
+}
+
+.help-card:hover h2 {
+  color: white;
+}
+
+/* List */
+.help-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.help-card li {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #444;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.help-card li::before {
+  content: "✔";
+  color: #00c6ff;
+  font-weight: bold;
+  margin-right: 10px;
+  transition: color 0.3s ease;
+}
+
+.help-card:hover li,
+.help-card:hover li::before {
+  color: white;
+}
+
+/* FAQ */
+.faq-item {
+  margin-bottom: 12px;
+}
+
+.faq-question {
+  width: 100%;
+  background: #f9fbfd;
+  border: none;
+  padding: 14px 18px;
+  text-align: left;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+}
+
+.faq-answer {
+  margin-top: 8px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  color: #333;
+  border-left: 4px solid #00c6ff;
+  background: #f1faff;
+  border-radius: 8px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Contact Card */
+.contact-card {
+  margin: 40px auto 0;
+  max-width: 600px;
+  text-align: center;
+}
+
+.contact-card a {
+  color: #00c6ff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.contact-card a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}

@@ -1,0 +1,79 @@
+.about-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+/* Header with gradient */
+.about-header {
+  background: linear-gradient(135deg, #6366f1, #9333ea);
+  color: white;
+  padding: 50px 20px;
+  border-radius: 0 0 20px 20px;
+  margin-bottom: 40px;
+}
+
+.about-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.about-subtitle {
+  font-size: 16px;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 24px;
+  margin: 20px 0;
+  color: #111827;
+  border-bottom: 3px solid cyan;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Team Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Team Card */
+.team-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.team-card:hover {
+  background: linear-gradient(135deg, #06b6d4, #3b82f6); /* cyan/blue */
+  color: white;
+  transform: translateY(-5px);
+}
+
+.team-card h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.team-card p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.team-card span {
+  font-size: 12px;
+  color: gray;
+}
+.team-card:hover span {
+  color: white;
+}

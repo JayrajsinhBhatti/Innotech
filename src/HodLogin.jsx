@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // ✅ for navigation
 import "./App.css";
 
@@ -13,20 +13,24 @@ export default function HODLogin() {
   const validUsername = "NikitaBhatt";
   const validPassword = "123";
 
+  useEffect(() => {
+    document.title = "HOD Login"; // ✅ set page/tab name
+  }, []);
+
   const handleLogin = (e) => {
-  e.preventDefault();
-  if (username === validUsername && password === validPassword) {
-    setError("");
-    
-    // Save login info for protected dashboard
-    localStorage.setItem("hodUsername", username);
-    
-    // Redirect to HOD Dashboard
-    navigate("/hod-dashboard", { replace: true });
-  } else {
-    setError("❌ Invalid Username or Password");
-  }
-};
+    e.preventDefault();
+    if (username === validUsername && password === validPassword) {
+      setError("");
+
+      // Save login info for protected dashboard
+      localStorage.setItem("hodUsername", username);
+
+      // Redirect to HOD Dashboard
+      navigate("/hod-dashboard", { replace: true });
+    } else {
+      setError("❌ Invalid Username or Password");
+    }
+  };
 
   return (
     <div className="login-container">
